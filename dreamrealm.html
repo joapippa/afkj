@@ -2,90 +2,264 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>VNサーバ/幻影エンドレス評価</title>
+  <title>VN / Dream Realm Endless Testing</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f8f8f8;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #121212;
       padding: 30px;
       text-align: center;
+      color: #e0e0e0;
     }
-    img {
-      max-width: 300px;
-      height: auto;
-      margin-bottom: 20px;
+
+    h1 {
+      font-size: 2em;
+      color: #ffffff;
+      margin-bottom: 25px;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+      justify-items: center;
+    }
+
+    .image-container {
+      width: 200px;
+      height: 150px;
+      overflow: hidden;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background-color: #1e1e1e;
     }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,0,0,0.9);
+    }
+
     table {
       border-collapse: collapse;
       width: 80%;
       margin: auto;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: #1e1e1e;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
       table-layout: fixed;
+      margin-top: 30px;
+      color: #e0e0e0;
     }
     th, td {
-      border: 1px solid #ddd;
+      border: 1px solid #333;
       padding: 10px 15px;
       text-align: center;
       width: 16%;
-      word-wrap: break-word;
     }
     th {
-      background-color: #4CAF50;
-      color: white;
+      background-color: #388e3c;
+      color: #ffffff;
     }
     tr:nth-child(even) {
-      background-color: #f2f2f2;
+      background-color: #2c2c2c;
+    }
+    tr:nth-child(odd) {
+      background-color: #1e1e1e;
     }
     tr:hover {
-      background-color: #e0f7fa;
+      background-color: #333333;
     }
-    caption {
-      caption-side: top;
-      font-size: 1.5em;
-      margin-bottom: 15px;
-      font-weight: bold;
-      color: #333;
+
+    .credit-section {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .credit-box {
+      background-color: #1e1e1e;
+      border-top: 2px solid #4a86e8;
+      padding: 15px;
+      width: 320px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      text-align: left;
+      color: #e0e0e0;
+    }
+
+    .credit-box h2 {
+      font-size: 16px;
+      color: #4a86e8;
+      margin-top: 0;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+    }
+
+    .credit-box p {
+      font-size: 14px;
+      color: #cccccc;
+      margin: 0 0 10px 0;
+    }
+
+    .credit-box a {
+      color: #4a86e8;
+      text-decoration: none;
+    }
+
+    .credit-box a:hover {
+      text-decoration: underline;
+    }
+
+    .credit-image img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .youtube-thumb img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .youtube-thumb img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,0,0,0.9);
     }
   </style>
 </head>
 <body>
-  <img src="velala.png" alt="タイトル画像">
+  <h1>VN / Dream Realm Endless Testing</h1>
+
+  <div class="image-gallery">
+    <div class="image-container">
+      <img src="baelran.png" alt="Baelran (髭セレスチアル)">
+    </div>
+    <div class="image-container">
+      <img src="velala.png" alt="Velala (BBA)">
+    </div>
+    <div class="image-container">
+      <img src="harak.png" alt="Harak (サメ男)">
+    </div>
+    <div class="image-container">
+      <img src="faramor.png" alt="Faramor (ワンワン)">
+    </div>
+  </div>
+
   <table>
-    <caption>VNサーバ/幻影エンドレス評価</caption>
     <thead>
       <tr>
-        <th>幻影ボス</th>
-        <th>髭セレスチアル</th>
-        <th>BBA</th>
-        <th>サメ男</th>
-        <th>ワンワン</th>
+        <th>Dream Realm Boss<br>(幻影ボス)</th>
+        <th>Baelran<br>(髭セレスチアル)</th>
+        <th>Velala<br>(BBA)</th>
+        <th>Harak<br>(サメ男)</th>
+        <th>Faramor<br>(ワンワン)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>幻晶ビートル</td>
+        <td>Crystal Beetle<br>(幻晶ビートル)</td>
         <td>×</td>
         <td>○</td>
         <td>×</td>
         <td>○</td>
       </tr>
       <tr>
-        <td>深淵蝕骨龍</td>
+        <td>Necrodrakon<br>(深淵蝕骨龍)</td>
         <td>×</td>
         <td>×</td>
         <td>○</td>
         <td>×</td>
       </tr>
       <tr>
-        <td>腐臭のミアズマッ</td>
+        <td>Plague Creeper<br>(腐臭のミアズマッ)</td>
         <td>○</td>
         <td>△</td>
         <td>○</td>
         <td>×</td>
       </tr>
       <tr>
-        <td>ジャイアントシェ</td>
+        <td>Crazed Shellbrute<br>(ジャイアントシェ)</td>
         <td>×</td>
+        <td>×</td>
+        <td>×</td>
+        <td>○</td>
+      </tr>
+      <tr>
+        <td>Illucia the Unveiler<br>(イルシカ)</td>
+        <td>×</td>
+        <td>×</td>
+        <td>×</td>
+        <td>×</td>
+      </tr>
+      <tr>
+        <td>Thalassa<br>(タリサ)</td>
+        <td>×</td>
+        <td>○</td>
+        <td>×</td>
+        <td>×</td>
+      </tr>
+      <tr>
+        <td>Sigmund<br>(ジークムント)</td>
+        <td>×</td>
+        <td>×</td>
+        <td>×</td>
+        <td>○</td>
+      </tr>
+      <tr>
+        <td>Nocturne Judicator<br>(極夜の処刑人)</td>
+        <td>×</td>
+        <td>○</td>
+        <td>×</td>
+        <td>×</td>
+      </tr>
+      <tr>
+        <td><strong># of Meta<br>(最適編成数)</strong></td>
+        <td><strong>1</strong></td>
+        <td><strong>3.5</strong></td>
+        <td><strong>2</strong></td>
+        <td><strong>3</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="credit-section">
+    <div class="credit-box" id="credit-joa">
+      <h2>Credit: Joa</h2>
+      <p>
+        Table created by <strong>Joa@G2 server</strong><br>
+        🔗 <a href="https://airtable.com/appOrneGEfKf5sPBS/shrGesiaH0DIRck5R/tblXc3OoxgvwVDzha" target="_blank">
+        Guild Introduction (GrandCross)</a>
+      </p>
+      <div class="credit-image">
+        <img src="gc_logo.png" alt="Grand Cross Logo">
+      </div>
+    </div>
+
+    <div class="credit-box" id="credit-youtube">
+      <h2>Credit: YouTube Video</h2>
+      <div class="youtube-thumb">
+        <a href="https://youtu.be/sl0SAwL5u4M?si=8rK3xfHQouK5AlKA" target="_blank">
+          <img src="https://img.youtube.com/vi/sl0SAwL5u4M/hqdefault.jpg" alt="YouTube Video Thumbnail">
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
