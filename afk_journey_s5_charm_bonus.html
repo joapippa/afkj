@@ -64,6 +64,177 @@
       overflow-wrap: anywhere; word-break: break-word;
     }
 
+
+    /* === Brightened Table Colors for better readability === */
+    :root {
+      --card: #1a1d26;        /* 少し明るい背景 */
+      --card-2: #212531;      /* 行背景1 */
+      --row-alt: #2a2f3d;     /* 行背景2（交互）*/
+      --hover: #33394a;       /* ホバー時 */
+      --border: #3a4252;      /* 境界線を明るく */
+      --thead-bg: #3f475c;    /* ヘッダ背景を明るめ */
+      --thead-text: #ffffff;  /* ヘッダ文字色は白 */
+    }
+
+    thead th {
+      color: var(--thead-text) !important;
+    }
+
+    tbody td {
+      background: var(--card-2);
+    }
+    tbody tr:nth-child(even) td { background: var(--row-alt); }
+    tbody tr:hover td { background: var(--hover) !important; }
+
+
+    /* === Cool Theme for Table === */
+    :root {
+      --bg: #0b0e14;           /* ページ全体はダーク紺 */
+      --card: #f5f7fa;         /* 表のベース背景を明るく */
+      --card-2: #ffffff;       /* 行背景（奇数行） */
+      --row-alt: #f0f4f9;      /* 行背景（偶数行） */
+      --hover: #e1ecf7;        /* ホバー時 */
+      --border: #c3d1e6;       /* 境界線は淡いブルーグレー */
+      --thead-bg: #2e5d92;     /* ヘッダ背景は深めブルー */
+      --thead-text: #ffffff;   /* ヘッダ文字は白 */
+      --text: #1a1c20;         /* 表内の文字は濃いグレー */
+      --muted: #5a6573;        /* 補助文字色 */
+      --accent: #2e5d92;       /* バッジやリンクのアクセント */
+    }
+
+    body { background: var(--bg); color: var(--text); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    thead th {
+      background: var(--thead-bg) !important;
+      color: var(--thead-text) !important;
+      border-bottom: 2px solid var(--border);
+    }
+
+    tbody td {
+      background: var(--card-2);
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr:nth-child(even) td { background: var(--row-alt); }
+    tbody tr:hover td { background: var(--hover) !important; }
+
+    .badge {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .tier {
+      background: var(--accent);
+      color: #fff !important;
+      border: none;
+      padding: 3px 8px;
+    }
+
+    /* Joa評価セル色分けをクールに */
+    td:nth-child(6):has(.tier-S) {
+      background: #e6fff0 !important;
+      color: #006b32;
+      border-left: 2px solid #00b34a;
+      border-right: 2px solid #00b34a;
+    }
+    td:nth-child(6):has(.tier-A) {
+      background: #e9f4ff !important;
+      color: #0056a3;
+      border-left: 2px solid #2e8fff;
+      border-right: 2px solid #2e8fff;
+    }
+    td:nth-child(6):has(.tier-B) {
+      background: #fff8e6 !important;
+      color: #8a6000;
+      border-left: 2px solid #ffb400;
+      border-right: 2px solid #ffb400;
+    }
+    td:nth-child(6):has(.tier-C) {
+      background: #ffecec !important;
+      color: #a10000;
+      border-left: 2px solid #ff4d4d;
+      border-right: 2px solid #ff4d4d;
+    }
+
+
+    /* === Strong overrides to enforce the cool theme & improve readability === */
+    /* Make sure variables are the latest */
+    :root {
+      --bg: #0b0e14;
+      --card: #f5f7fa;
+      --card-2: #ffffff;
+      --row-alt: #f0f4f9;
+      --hover: #e1ecf7;
+      --border: #c3d1e6;
+      --thead-bg: #2e5d92;
+      --thead-text: #ffffff;
+      --text: #1a1c20;
+      --muted: #5a6573;
+      --accent: #2e5d92;
+    }
+
+    body { background: var(--bg); color: var(--text); }
+
+    .card {
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+    }
+
+    /* Table cells: force light backgrounds */
+    tbody td { background: var(--card-2) !important; color: var(--text) !important; border-bottom: 1px solid var(--border) !important; }
+    tbody tr:nth-child(even) td { background: var(--row-alt) !important; }
+    tbody tr:hover td { background: var(--hover) !important; }
+
+    thead th {
+      background: var(--thead-bg) !important;
+      color: var(--thead-text) !important;
+      border-bottom: 2px solid var(--border) !important;
+    }
+
+    /* Joa評価 badge: rely on cell color, not badge color */
+    .tier {
+      background: transparent !important;
+      color: inherit !important;
+      border: 0 !important;
+      padding: 2px 6px !important;
+      font-weight: 800;
+    }
+
+    /* Joa評価 cells coloring */
+    td:nth-child(6):has(.tier-S) {
+      background: #e6fff0 !important;
+      color: #0b6a3a !important;
+      border-left: 2px solid #00b34a !important;
+      border-right: 2px solid #00b34a !important;
+    }
+    td:nth-child(6):has(.tier-A) {
+      background: #e9f4ff !important;
+      color: #0a4f96 !important;
+      border-left: 2px solid #2e8fff !important;
+      border-right: 2px solid #2e8fff !important;
+    }
+    td:nth-child(6):has(.tier-B) {
+      background: #fff8e6 !important;
+      color: #7a5a00 !important;
+      border-left: 2px solid #ffb400 !important;
+      border-right: 2px solid #ffb400 !important;
+    }
+    td:nth-child(6):has(.tier-C) {
+      background: #ffecec !important;
+      color: #9a0000 !important;
+      border-left: 2px solid #ff4d4d !important;
+      border-right: 2px solid #ff4d4d !important;
+    }
+
 </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -445,7 +616,7 @@
   <div class="credit-box" id="credit-image">
     <h2>Season Visual</h2>
     <div class="season-image">
-      <img src="76e43575-601f-4ed5-8b4a-a374ac59031e.png" alt="Season Visual">
+      <img src="season5_logo.png" alt="Season Visual">
     </div>
   </div>
 
