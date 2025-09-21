@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <style>html{-webkit-text-size-adjust:100%;}</style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AFK Journey Season 5 Hero Charms Breakdown</title>
@@ -46,7 +50,7 @@
       border-radius: 14px;
       padding: 16px 16px 8px;
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      overflow-x: auto;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
     }
 
     table { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -127,13 +131,73 @@
 
     .season-image img { max-width: 100%; border-radius: 12px; margin-top: 12px; }
 
+
+    /* ===== Responsive (<= 768px) ===== */
+    @media (max-width: 768px) {
+      body { padding: 16px; }
+      .container { max-width: 100%; }
+      h1 { font-size: 20px; margin-bottom: 8px; }
+      .badge { font-size: 11px; padding: 1px 6px; }
+      .card { padding: 12px; }
+      table { table-layout: auto; }
+      thead th { position: static; /* モバイルではstickyを無効化してガタつきを防止 */ }
+      thead th, tbody td { padding: 8px; }
+      .dataframe { font-size: 14px; }
+      td, th { word-break: break-word; }
+      tbody td > ul { padding-left: 1em; }
+      tbody td > ul > li { line-height: 1.5; }
+      /* 列幅の固定を解除して自然な折り返しに */
+      th:nth-child(1), td:nth-child(1),
+      th:nth-child(2), td:nth-child(2),
+      th:nth-child(3), td:nth-child(3),
+      th:nth-child(4), td:nth-child(4),
+      th:nth-child(5), td:nth-child(5),
+      th:nth-child(6), td:nth-child(6) {
+        width: auto; min-width: 0;
+      }
+      /* クレジットは縦積み */
+      .credit-section { flex-direction: column; gap: 12px; }
+      .credit-box { min-width: unset; }
+      .credit-box h2 { font-size: 16px; }
+      .credit-box p { font-size: 13px; }
+      .season-image img,
+      .credit-image img,
+      .youtube-thumb img { width: 100%; height: auto; }
+    }
+
+
+    .scroll-hint { display:none; font-size:12px; color: var(--muted); margin: 0 0 8px; }
+    @media (max-width: 768px) {
+      .scroll-hint { display:block; }
+    }
+
+
+    /* テーブル横スクロール用のラッパー */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table-wrap > table { width: 100%; border-collapse: collapse; }
+
+    /* Safari での予期せぬはみ出し対策：長文の強制折返し */
+    td, th { word-break: break-word; overflow-wrap: anywhere; hyphens: auto; }
+
+    /* iPhone縦持ちなど狭幅時は「横スクロール」を優先し、列崩れを防止 */
+    @media (max-width: 768px) {
+      .table-wrap > table { min-width: 980px; } /* 画面幅より広くして横スクロールに誘導 */
+      thead th, tbody td { white-space: normal; }
+    }
+
+    /* スクロールヒントをラッパー上に出す */
+    .scroll-hint { display:none; font-size:12px; color: var(--muted); margin: 0 0 8px; }
+    @media (max-width: 768px) {
+      .scroll-hint { display:block; }
+    }
+
 </style>
 
 </head>
 <body>
   <div class="container">
     <h1>AFK Journey Season 5 Hero Charms Breakdown <span class="badge">Season 5</span></h1>
-    <div class="card">
+    <div class="card"><div class="scroll-hint" aria-hidden="true">⇢ 横にスワイプで全列を表示</div><div class="table-wrap"><div class="scroll-hint" aria-hidden="true">⇢ スクロールで全列を表示</div>
       <table class="dataframe" aria-describedby="tbl-desc">
         <thead>
           <tr>
@@ -291,7 +355,7 @@
             <td><span class="tier tier-B">B</span></td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
 
       </div>
   </div>
