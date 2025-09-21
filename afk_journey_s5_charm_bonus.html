@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AFK Journey Season 5 Hero Charms Breakdown</title>
+  
+  <style>
+    :root {
+      --bg: #0a0b0e;
+      --card: #12151c;
+      --card-2: #171b24;
+      --text: #f0f1f3;
+      --muted: #aab0b6;
+      --accent: #7cc4ff;
+      --border: #2a2f3a;
+      --hover: #1f2632;
+      --row-alt: #171c28;
+
+      --thead-bg: #252d3b;
+      --thead-text: #eaf2ff;
+
+      --tier-S: #1f3b2c;
+      --tier-A: #1f3342;
+      --tier-B: #3a321d;
+      --tier-C: #3a1f24;
+
+      --tier-S-border: #73ffa6;
+      --tier-A-border: #7cc4ff;
+      --tier-B-border: #ffd36e;
+      --tier-C-border: #ff8b8b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 32px;
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+      line-height: 1.7;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { margin: 0 0 12px; font-size: 28px; letter-spacing: .2px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 16px 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      overflow-x: auto;
+    }
+
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    thead th {
+      position: sticky; top: 0; z-index: 1;
+      background: var(--thead-bg);
+      color: var(--thead-text);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 12px; font-weight: 800;
+      text-align: center;
+      letter-spacing: .3px;
+    }
+    tbody td {
+      background: var(--card-2);
+      border-bottom: 1px solid var(--border);
+      padding: 12px;
+      vertical-align: middle;
+      text-align: left;
+    }
+    tbody tr:nth-child(even) td { background: var(--row-alt); }
+    tbody tr:hover td { background: var(--hover) !important; }
+
+    td, th { word-wrap: break-word; }
+
+    /* 列幅指定 */
+    th:nth-child(1), td:nth-child(1) { width: 6%; min-width: 50px; text-align: center; }
+    th:nth-child(2), td:nth-child(2) { width: 18%; min-width: 180px; max-width: 220px; white-space: normal; }
+    th:nth-child(3), td:nth-child(3) { width: 28%; min-width: 200px; }
+    th:nth-child(4), td:nth-child(4) { width: 20%; min-width: 150px; }
+    th:nth-child(5), td:nth-child(5) { width: 20%; min-width: 200px; }
+    th:nth-child(6), td:nth-child(6) { width: 8%; min-width: 70px; text-align: center; font-weight: 700; }
+
+    /* Joa評価セルの色分け（:has()使用） */
+    td:nth-child(6):has(.tier-S) {
+      background: linear-gradient(0deg, rgba(115,255,166,.12), rgba(115,255,166,.12)), var(--tier-S);
+      color: #c8ffdf;
+      border-left: 2px solid var(--tier-S-border);
+      border-right: 2px solid var(--tier-S-border);
+    }
+    td:nth-child(6):has(.tier-A) {
+      background: linear-gradient(0deg, rgba(124,196,255,.12), rgba(124,196,255,.12)), var(--tier-A);
+      color: #d5ebff;
+      border-left: 2px solid var(--tier-A-border);
+      border-right: 2px solid var(--tier-A-border);
+    }
+    td:nth-child(6):has(.tier-B) {
+      background: linear-gradient(0deg, rgba(255,211,110,.12), rgba(255,211,110,.12)), var(--tier-B);
+      color: #ffeab8;
+      border-left: 2px solid var(--tier-B-border);
+      border-right: 2px solid var(--tier-B-border);
+    }
+    td:nth-child(6):has(.tier-C) {
+      background: linear-gradient(0deg, rgba(255,139,139,.12), rgba(255,139,139,.12)), var(--tier-C);
+      color: #ffd0d0;
+      border-left: 2px solid var(--tier-C-border);
+      border-right: 2px solid var(--tier-C-border);
+    }
+
+    .tier {
+      display:inline-block; padding: 2px 8px; border-radius: 999px; font-weight: 700; font-size: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.18);
+      color: inherit;
+    }
+
+    .badge { display:inline-block; padding:2px 8px; border:1px solid var(--accent); border-radius:999px; color:var(--accent); font-size:12px; margin-left:8px; }
+
+    /* 行の高さのばらつきを抑制 */
+    tbody td > ul { margin: 0; padding-left: 1.2em; }
+    tbody td > ul > li { line-height: 1.6; }
+  
+    .credit-section { margin-top: 40px; display: flex; gap: 24px; flex-wrap: wrap; }
+    .credit-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; flex: 1; min-width: 280px; }
+    .credit-box h2 { margin-top: 0; font-size: 18px; color: var(--thead-text); }
+    .credit-box p { margin: 8px 0 0; font-size: 14px; color: var(--text); }
+    .credit-image img, .youtube-thumb img { max-width: 100%; border-radius: 8px; margin-top: 12px; }
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>AFK Journey Season 5 Hero Charms Breakdown <span class="badge">Season 5</span></h1>
+    <div class="card">
+      <table class="dataframe" aria-describedby="tbl-desc">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">特徴</th>
+            <th scope="col">効果テキスト</th>
+            <th scope="col">英雄</th>
+            <th scope="col">ヒゲおじ評価</th>
+            <th scope="col">Joa評価</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1</td>
+            <td>クリ火力＋範囲ダメ付与</td>
+            <td>クリ率+30／クリダメ+30／クリティカル時に隣接へ20%スプラッシュダメージ（連鎖不可）</td>
+            <td><ul><li>ウォーカー</li><li>ラミア</li><li>リース</li></ul></td>
+            <td><ul><li>PvP寄りのボーナス。</li><li>ウォーカー／ラミアはたまにPvPで採用可、リースは低評価。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+          <tr>
+            <td>#2</td>
+            <td>序盤耐久＋致死回避→反撃フェーズ強化</td>
+            <td>開幕15秒被ダメ-35%→終了後与ダメ+45%。初回致死ダメ耐え＋最大HP40%回復＋15秒被ダメ-40%</td>
+            <td><ul><li>シーダ</li><li>バハラム</li><li>ハラック</li></ul></td>
+            <td><ul><li>PvP最上級ボーナス。</li><li>与ダメUPが確定ダメ／物理ダメ／魔法ダメのみ適用でHP損失ダメには効果がないため、幻影ではバハラム強化（スキル2・3）。</li><li>エンドレスのハラックはHP損失ダメがメインなので恩恵は限定的。</li><li>PvPはシーダとバハラムが大幅強化。</li></ul></td>
+            <td><span class="tier tier-S">S</span></td>
+          </tr>
+          <tr>
+            <td>#3</td>
+            <td>後列支援型の遠隔DPSバフ</td>
+            <td>1タイル後方の味方に遠隔ダメ+25%／処断+20／貫通+20</td>
+            <td><ul><li>ダウナエ</li><li>エニエ</li><li>パンドラ</li><li>ニル</li><li>フーキン</li></ul></td>
+            <td><ul><li>強力なバッファ。</li><li>特にパンドラの価値上昇。</li><li>遠隔DPS全般に有効。</li></ul></td>
+            <td><span class="tier tier-A">A</span></td>
+          </tr>
+          <tr>
+            <td>#4</td>
+            <td>回復強化＋支援バフ付与</td>
+            <td>自身の回復量+30。ヒール／シールド時に味方へ攻撃+14%・物魔防+14%（8秒・非重複）</td>
+            <td><ul><li>イヴォンヌ</li><li>アクンとモンモン</li><li>ガルダ</li><li>クイン</li><li>エイン</li><li>リュボミル</li></ul></td>
+            <td><ul><li>幻影で総合DPSの底上げ。</li><li>エイン／リュボミル／モンモンを強化。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+          <tr>
+            <td>#5</td>
+            <td>長期戦向けスケール</td>
+            <td>開幕攻撃速度+60。30秒後通常攻撃ダメ+35%。60秒後貫通+35</td>
+            <td><ul><li>シンドバッド</li><li>ヴェリカ</li><li>アド</li><li>コリン</li></ul></td>
+            <td><ul><li>幻影でシンドバッドを強化。</li><li>他は限定的。</li></ul></td>
+            <td><span class="tier tier-C">C</span></td>
+          </tr>
+          <tr>
+            <td>#6</td>
+            <td>周期的な追撃ダメージ</td>
+            <td>6秒ごとに追加ダメ（攻撃力260%）＋対象失HPの15%分を追撃（上限：自身攻撃200%）</td>
+            <td><ul><li>スレーザー</li><li>ライカ</li><li>スケッギョルド</li><li>ボニー</li><li>ダミアン</li><li>ソニア</li></ul></td>
+            <td><ul><li>PvP寄り。</li><li>範囲攻撃持ちと好相性。</li><li>幻影では微妙。</li></ul></td>
+            <td><span class="tier tier-C">C</span></td>
+          </tr>
+          <tr>
+            <td>#7</td>
+            <td>高攻撃速度キャラ向けの確定ダメ付与</td>
+            <td>通常攻撃3回目ごとに対象最大HP5%の確定ダメージ（上限：自身攻撃130%）。発動時、攻撃速度+50（5秒・重複不可）</td>
+            <td><ul><li>サジタリス</li><li>メイ</li><li>インドラ</li><li>ブライアン</li><li>メリス</li></ul></td>
+            <td><ul><li>インドラに最も恩恵がありそうだが生存が難しい。</li><li>メイは通常攻撃頻度が高くないため微妙。</li><li>サジタリスは元々の攻撃速度が遅く、恩恵あり。</li></ul></td>
+            <td><span class="tier tier-C">C</span></td>
+          </tr>
+          <tr>
+            <td>#8</td>
+            <td>シールド依存の自己強化</td>
+            <td>自身のシールド値+20%。味方へのシールド値+20%。シールド中に自身の攻撃+28%・物魔防+28%</td>
+            <td><ul><li>ダイモン</li><li>ルシウス</li><li>ゴーラン</li><li>アンダンドラ</li></ul></td>
+            <td><ul><li>ダイモンは幻影で火力強化。</li><li>基本的にはタンクをより固くするだけ。</li><li>ゴーランも火力面で恩恵がある可能性。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+          <tr>
+            <td>#9</td>
+            <td>前方支援の近接DPSバフ</td>
+            <td>前方1タイルの味方に「遠隔防御+30／攻撃力+25%／近接ダメ+25%」</td>
+            <td><ul><li>ロワン</li><li>ココ</li><li>フィー</li></ul></td>
+            <td><ul><li>近接DPSを明確に強化。</li><li>ココは幻影（エンドレス前）、ロワンは多用途、フィーは厄災でハラックを強化。</li></ul></td>
+            <td><span class="tier tier-A">A</span></td>
+          </tr>
+          <tr>
+            <td>#10</td>
+            <td>定点射撃前提の火力大幅強化</td>
+            <td>静止5秒後に速度+30・攻撃力+40%（移動で消失）。初回発動時は5秒不動</td>
+            <td><ul><li>アレクシア</li><li>ヴェパリアン</li><li>ディアグレス</li></ul></td>
+            <td><ul><li>PvPでは5秒経つ前に落ちる可能性あり。</li><li>幻影ではアレクシアに強力なバフとなる可能性。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+          <tr>
+            <td>#11</td>
+            <td>範囲DoT＋開幕耐性</td>
+            <td>周囲に毎秒攻撃力50%の物理DoT＋与ダメの50%回復。開幕5秒は行動阻害無効</td>
+            <td><ul><li>ペルセウス</li><li>テミシア</li><li>ルル</li><li>ソーン</li><li>イゴール</li><li>ブルータス</li><li>ルカ</li><li>ザルド</li><li>クルーガー</li></ul></td>
+            <td><ul><li>開幕の行動阻害無効がPvPで重要。</li><li>DoTの効果自体は限定的。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+          <tr>
+            <td>#12</td>
+            <td>早期キルで強化定着</td>
+            <td>開幕、基本ステ+40%→毎秒4%減衰。敵1体目の撃破／アシストで減衰停止。敵2体目の撃破／アシストでステ復元＋攻撃力300%のシールド</td>
+            <td><ul><li>サリエ</li><li>エルロン</li><li>ヴィラ</li><li>アタリア</li><li>ナーラ</li><li>シルヴィナ</li><li>セトス</li><li>カブラ</li></ul></td>
+            <td><ul><li>PvPで強力。</li><li>サリエの任務達成にも好相性。</li><li>幻影では機能しない。</li></ul></td>
+            <td><span class="tier tier-A">A</span></td>
+          </tr>
+          <tr>
+            <td>#13</td>
+            <td>被ダメ増加デバフ＋自己強化</td>
+            <td>与ダメ後、対象の被ダメ+12%（5秒）。この効果を受けた敵1体につき自身被ダメ-5%（最大-25%）。対象が5体以上なら自身攻撃力+25%</td>
+            <td><ul><li>ルーシー</li><li>アルドン</li><li>タシー</li><li>セシア</li><li>クルル</li><li>ホジキン</li></ul></td>
+            <td><ul><li>クルル、タシーのPvP性能が上がりそう。</li><li>ルーシーはステージ向き。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+          <tr>
+            <td>#14</td>
+            <td>周期範囲バフ＋自己シールド</td>
+            <td>5秒ごとに2マス範囲以内の味方へ攻撃力+20%・ライフスティール+20（5秒・重複不可）。この効果を受けた非召喚味方数に応じて自身は攻撃力30%のシールドを獲得</td>
+            <td><ul><li>トーラン</li><li>シャキール</li><li>タドール</li><li>プルースト</li><li>双子</li><li>アルマス</li><li>マンカラ</li></ul></td>
+            <td><ul><li>幻影／PvP両方で有効。</li><li>双子と特に好相性。</li></ul></td>
+            <td><span class="tier tier-A">A</span></td>
+          </tr>
+          <tr>
+            <td>#15</td>
+            <td>スキル主体DPS特化</td>
+            <td>非通常攻撃ダメ+40%。クリダメ+30・ライフスティール+30</td>
+            <td><ul><li>カスティー</li><li>シェミーラ</li><li>タレン</li><li>ナツ</li><li>アタランテ</li><li>フェルガルド</li><li>パン</li><li>ヴァレン</li></ul></td>
+            <td><ul><li>シェミーラは今シーズンも最上位DPS。</li><li>フェルガルドも強力。</li><li>スキル主体全般に有効。</li></ul></td>
+            <td><span class="tier tier-S">S</span></td>
+          </tr>
+          <tr>
+            <td>#16</td>
+            <td>デバフ編成で火力増加＋回転UP</td>
+            <td>攻撃時、その敵に自身以外の英雄からのデバフがあると、その数だけ自身与ダメ+10%＆SP10獲得（最大SP100）</td>
+            <td><ul><li>カレリーナ</li><li>サテラ</li></ul></td>
+            <td><ul><li>サテラのPvP強化が見込める。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+          <tr>
+            <td>#17</td>
+            <td>高回転＋初動バフ＋浄化</td>
+            <td>SP回復率+24%。必殺時に与ダメ+28%（10秒・重複不可）＋攻撃力140%の全体魔法ダメ。初回SP満タン時に解除可能なデバフを全解除＆5秒行動阻害無効</td>
+            <td><ul><li>ティスニア</li><li>アルサ</li><li>パリーサ</li><li>ミレイル</li><li>ドレアル</li></ul></td>
+            <td><ul><li>ティスニアを強化。</li><li>ドレアルは必殺技の回転UP。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+          <tr>
+            <td>#18</td>
+            <td>召喚特化シナジー</td>
+            <td>自身と召喚体の攻撃+18%・物魔防+18%。召喚1体ごとに自身攻撃+10%（最大+40%）。召喚が10秒生存でヘイスト+30</td>
+            <td><ul><li>ベリル</li><li>ゾーヤ</li><li>フラベル</li></ul></td>
+            <td><ul><li>ゾーヤのタワー2本は召喚扱いにならないため、今シーズンは活躍しない可能性。</li><li>フラベルはヴェルディア天賦と本ボーナスの相乗で活躍の可能性。</li></ul></td>
+            <td><span class="tier tier-B">B</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      </div>
+  </div>
+
+  <div class="credit-section">
+    <div class="credit-box" id="credit-joa">
+      <h2>Credit: Joa</h2>
+      <p>
+        Table created by <strong>Joa@G2 server</strong><br>
+        🔗 <a href="https://airtable.com/appOrneGEfKf5sPBS/shrGesiaH0DIRck5R/tblXc3OoxgvwVDzha" target="_blank">
+        Guild Introduction (GrandCross)</a>
+      </p>
+      <div class="credit-image">
+        <img src="gc_logo.png" alt="Grand Cross Logo">
+      </div>
+    </div>
+
+    <div class="credit-box" id="credit-youtube">
+      <h2>Credit: YouTube Video</h2>
+      <div class="youtube-thumb">
+        <a href="https://youtu.be/VOKOe8qiZ-k?si=gFaBTMA1tsegcPVD" target="_blank">
+          <img src="https://img.youtube.com/vi/VOKOe8qiZ-k/hqdefault.jpg" alt="YouTube Video Thumbnail">
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
