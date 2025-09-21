@@ -4,7 +4,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <style>html{-webkit-text-size-adjust:100%;}</style>
+  <style>html{-webkit-text-size-adjust:100%;}
+    /* === Preserve desktop-like column widths on mobile (no forced wrap) === */
+    /* 全体では無理な単語分割をしない */
+    td, th { word-break: normal; overflow-wrap: normal; hyphens: manual; }
+
+    /* 重要列は改行しない（ID / 特徴 / Joa評価）*/
+    th:nth-child(1), td:nth-child(1),
+    th:nth-child(2), td:nth-child(2),
+    th:nth-child(6), td:nth-child(6) {
+      white-space: nowrap;
+    }
+
+    /* 長文列（効果テキスト / 英雄 / ヒゲおじ評価）は必要に応じてのみ折り返し */
+    th:nth-child(3), td:nth-child(3),
+    th:nth-child(4), td:nth-child(4),
+    th:nth-child(5), td:nth-child(5) {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+
+    /* モバイル時は横スクロールを前提にテーブル幅を確保 */
+    @media (max-width: 768px) {
+      .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .table-wrap > table { min-width: 1200px; } /* PC相当の横幅を維持 */
+      table { table-layout: fixed !important; }
+      thead th { position: static; } /* Safariの飛びを防止 */
+    }
+
+</style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AFK Journey Season 5 Hero Charms Breakdown</title>
@@ -139,7 +166,7 @@
       h1 { font-size: 20px; margin-bottom: 8px; }
       .badge { font-size: 11px; padding: 1px 6px; }
       .card { padding: 12px; }
-      table { table-layout: auto; }
+      table { table-layout: fixed; }
       thead th { position: static; /* モバイルではstickyを無効化してガタつきを防止 */ }
       thead th, tbody td { padding: 8px; }
       .dataframe { font-size: 14px; }
