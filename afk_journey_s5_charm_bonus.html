@@ -24,6 +24,8 @@
 
     /* モバイル時は横スクロールを前提にテーブル幅を確保 */
     @media (max-width: 768px) {
+      th:nth-child(4), td:nth-child(4) { min-width: 160px; } /* 英雄列幅固定 */
+
       .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .table-wrap > table { min-width: 1200px; } /* PC相当の横幅を維持 */
       table { table-layout: fixed !important; }
@@ -235,6 +237,23 @@
       border-right: 2px solid #ff4d4d !important;
     }
 
+
+/* === Overrides: 英雄列を縦の箇条書きに === */
+td:nth-child(4) ul {
+  display: block !important;
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+td:nth-child(4) ul li {
+  display: list-item !important;
+  margin: 2px 0;
+  white-space: nowrap;
+}
+td:nth-child(4) ul li + li::before {
+  content: none !important;
+}
+
 </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -252,7 +271,7 @@
       --hover: #1f2632;
       --row-alt: #171c28;
 
-      --thead-bg: #252d3b;
+      --thead-bg: #2e5d92; /* ブルー系 */
       --thead-text: #eaf2ff;
 
       --tier-S: #1f3b2c;
